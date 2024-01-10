@@ -9,6 +9,6 @@ export default class ProductController {
     let products = productModel.fetchProducts();
     // console.log(products);
     res.render("product.ejs",{products:products})
-    
+  
   };
 }
