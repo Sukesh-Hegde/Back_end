@@ -1,0 +1,3 @@
+products[index].rating.rate
+
+products[index].rating['count']
