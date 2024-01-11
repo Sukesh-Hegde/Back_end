@@ -20,7 +20,11 @@ server.use(ejsLayouts);
 //we should call the method(getProduct) which belogs to class
 //create an instance of productController (without instance we cannot call the method)
 const productController = new ProductController()
+//calling server
 server.get("/", productController.getProducts);
+server.get('/new',productController.getAddForm)
+//post request for when form is submitting
+server.post('/',productController.addNewProduct)
 
 server.use(express.static('src/views'))
 
