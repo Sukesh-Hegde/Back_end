@@ -18,13 +18,17 @@ export default class ProductController{
 
     //request to get the form
     getAddForm(req,res){
-        return res.render('new-product.ejs');
+        return res.render('new-product.ejs',{errorMessage:null});
     }
 
     //adding new product
     addNewProduct(req,res){
         //access data from form
-        console.log(req.body);
+        // console.log(req.body);
+        //passing new product to add method of model,  after cinvorting to readable form in index.js
+        ProductModel.add(req.body);
+
+        //retuerning to main page after updating the new product
         let products = ProductModel.get();
         res.render("products.ejs",{products:products})
 

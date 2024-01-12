@@ -4,8 +4,16 @@ import express from 'express'
 import ProductController from './src/controllers/product.controller.js';
 import path from 'path'
 import ejsLayouts from 'express-ejs-layouts'
+//importing validation middlware
+import validationMiddleware from './src/middleware/validation.middleware.js'
 
 const server = express();
+
+//parse form data
+//When the new product is added it must be converted to readable formate, this is done by the express MIDDLEWARE
+server.use(express.urlencoded({extended: true}))
+
+
 
 //inform our server that we are using view engine
 //setup view enhine settings
@@ -24,7 +32,7 @@ const productController = new ProductController()
 server.get("/", productController.getProducts);
 server.get('/new',productController.getAddForm)
 //post request for when form is submitting
-server.post('/',productController.addNewProduct)
+server.post('/',validationMiddleware,productController.addNewProduct)
 
 server.use(express.static('src/views'))
 
