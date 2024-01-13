@@ -28,6 +28,11 @@ export default class ProductModel{
       products.push(newProduct)
     }
 
+  //function to check an array whether perticular id is present or not
+  static getById(id){
+    return products.find(p=> p.is == id);
+  }
+
 }
 var products = [
     new ProductModel(
