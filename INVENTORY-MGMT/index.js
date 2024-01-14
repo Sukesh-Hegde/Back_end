@@ -31,8 +31,14 @@ const productController = new ProductController()
 //calling server
 app.get("/", productController.getProducts);
 app.get('/add-product',productController.getAddProduct)
-//to update the product
-app.get('/update-product',productController.getUpdateProductView);
+
+//to get the view for update the product,
+app.get(
+    '/update-product/:id',
+    productController.getUpdateProductView
+  );
+//updating the data
+app.post('/update-product',productController.postUpdateProduct)
 
 //post request for when form is submitting
 app.post('/',validationMiddleware,productController.postAddProduct)

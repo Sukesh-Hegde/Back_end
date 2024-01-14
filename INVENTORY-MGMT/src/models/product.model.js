@@ -2,17 +2,25 @@
 
 export default class ProductModel{
 
-    constructor(_id,_name,_desc,_price,_image){
-        this.id=_id;
-        this.name=_name;
-        this.desc=_desc;
-        this.price=_price;
-        this.image=_image;
+    constructor(id,name,desc,price,imageUrl){
+        this.id=id;
+        this.name=name;
+        this.desc=desc;
+        this.price=price;
+        this.imageUrl=imageUrl;
     }
 
     //create a static method which will return product
-    static get(){
+    static getAll(){
         return products;
+    }
+
+    //update products
+    static update(productObj) {
+      const index = products.findIndex(
+        (p) => p.id == productObj.id
+      );
+      products[index] = productObj;
     }
 
     static add(productObj){
@@ -30,7 +38,7 @@ export default class ProductModel{
 
   //function to check an array whether perticular id is present or not
   static getById(id){
-    return products.find(p=> p.is == id);
+    return products.find((p)=> p.id == id);
   }
 
 }

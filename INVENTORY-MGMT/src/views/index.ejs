@@ -18,10 +18,10 @@
                         <td><%=product.desc %></td>
                         <td scope="col"><%=product.price %></td>
                         <td>
-                            <img src="<%=product.image %>"style="max-width: 100px;">
+                            <img src="<%=product.imageUrl %>"style="max-width: 100px;">
                         </td>
                         <td>
-                            <a href="/update-product" class="btn btn-warning">Update</a>
+                            <a href="/update-product/<%= product.id %>" class="btn btn-warning">Update</a>
                         </td>
                     </tr>
                 <%})%>
