@@ -1,5 +1,8 @@
 import express from 'express'
 
+//importing user
+import UserController from './src/controllers/user.controller.js';
+
 //importing controller
 import ProductController from './src/controllers/product.controller.js';
 import path from 'path'
@@ -29,10 +32,20 @@ app.set("views", path.join(path.resolve(),'src','views'))
 //use it as middleware
 app.use(ejsLayouts);
 
+
+
 //we should call the method(getProduct) which belogs to class
 //create an instance of productController (without instance we cannot call the method)
-const productController = new ProductController()
+const productController = new ProductController();
+//similarly for user.model
+const userController = new UserController();
+
+
 //calling server
+app.get('/register',userController.getRegister)
+app.get('/login',userController.getLogin)
+app.post('/login',userController.postLogin)
+app.post('/register',userController.postRegister)
 app.get("/", productController.getProducts);
 app.get('/add-product',productController.getAddProduct)
 
