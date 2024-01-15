@@ -25,7 +25,10 @@ class ProductController{
         //access data from form
         // console.log(req.body);
         //passing new product to add method of model,  after converting to readable form in index.js
-        ProductModel.add(req.body);
+        const {name, desc, price} = req.body;
+        const imageUrl = "images/" + req.file.filename;
+
+        ProductModel.add(name, desc, price, imageUrl);
 
         //retuerning to main page after updating the new product
         var products = ProductModel.getAll();
@@ -54,6 +57,19 @@ class ProductController{
         var products = ProductModel.getAll();
         res.render("index",{products:products})
     }
+
+    deleteProduct(req,res){
+      const id = req.params.id;
+      //if product doesnot exist then
+      const productFound = ProductModel.getById(id);
+        if (!productFound) {
+          return res.status(401).send('Product not found');
+          
+        }
+      ProductModel.delete(id);
+      var products = ProductModel.getAll();
+      res.render('index',{products});
+      }   
        
 }
 export default ProductController;

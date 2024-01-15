@@ -23,14 +23,20 @@ export default class ProductModel{
       products[index] = productObj;
     }
 
-    static add(productObj){
+    //delete product method
+    static delete(id){
+      const index = products.findIndex((p)=> p.id == id);
+      products.splice(index,1);
+    }
+
+    static add(name, desc, price, imageUrl){
       let newProduct = new ProductModel(
         //for id
         products.length+1,
-        productObj.name,
-        productObj.desc,
-        productObj.price,
-        productObj.imageUrl,
+        name,
+        desc,
+        price,
+        imageUrl,
       )
       //pushing new product to the array
       products.push(newProduct)

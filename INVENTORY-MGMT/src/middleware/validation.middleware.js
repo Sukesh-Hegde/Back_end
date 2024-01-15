@@ -66,9 +66,18 @@ const validateRequest = async (
       .withMessage(
         'Price should be a positive value'
       ),
-    body('imageUrl')
-      .isURL()
-      .withMessage('Invalid url'),
+    // body('imageUrl')
+    //   .isURL()
+    //   .withMessage('Invalid url'),
+
+
+    //custome validator for the image
+    body('imageUrl').custom((value, {req})=>{
+      if(!req.file) {
+        throw new Error('Image is required');
+      }
+      return true;
+    })
   ];
 
   // 2. run those rules.

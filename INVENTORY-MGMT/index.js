@@ -6,8 +6,12 @@ import path from 'path'
 import ejsLayouts from 'express-ejs-layouts'
 //importing validation middlware
 import validationMiddleware from './src/middleware/validation.middleware.js'
+import { uploadFile } from './src/middleware/file-upload.middleware.js';
 
 const app = express();
+
+//main.js file can be directly access to all "views" folder, so making it as public (for delete operation)
+app.use(express.static('public'));
 
 //parse form data
 //When the new product is added it must be converted to readable formate, this is done by the express MIDDLEWARE
@@ -36,12 +40,18 @@ app.get('/add-product',productController.getAddProduct)
 app.get(
     '/update-product/:id',
     productController.getUpdateProductView
-  );
+);
+
+app.post(
+  '/delete-product/:id',
+  productController.deleteProduct
+);
+
 //updating the data
-app.post('/update-product',productController.postUpdateProduct)
+app.post('/update-product',uploadFile.single('imageUrl'),validationMiddleware,productController.postUpdateProduct)
 
 //post request for when form is submitting
-app.post('/',validationMiddleware,productController.postAddProduct)
+app.post('/',uploadFile.single('imageUrl'),validationMiddleware,productController.postAddProduct)
 
 
 
