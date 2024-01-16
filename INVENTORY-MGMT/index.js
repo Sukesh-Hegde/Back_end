@@ -14,13 +14,23 @@ import { uploadFile } from './src/middleware/file-upload.middleware.js';
 //importing authentication
 import { auth } from './src/middleware/auth.middleware.js';
 
+
 const app = express();
 
 //main.js file can be directly access to all "views" folder, so making it as public (for delete operation)
 app.use(express.static('public'));
 
+//importing cookieParser
+import cookieParser from 'cookie-parser';
+//import last visit middleware
+import { setLastVisit } from './src/middleware/lastVisit.middleware.js';
+app.use(cookieParser());
+//setting cookie for every operation
+app.use(setLastVisit);
+
 //importing session
 import session from 'express-session';
+import { markAsUntransferable } from 'worker_threads';
 app.use(session({
   secret:'SecretKey',
   resave:false,
@@ -57,6 +67,7 @@ const userController = new UserController();
 app.get('/register',userController.getRegister)
 app.get('/login',userController.getLogin)
 app.post('/login',userController.postLogin)
+app.get('/logout',userController.logout)
 app.post('/register',userController.postRegister)
 app.get("/",auth, productController.getProducts);
 app.get('/add-product',auth,productController.getAddProduct)

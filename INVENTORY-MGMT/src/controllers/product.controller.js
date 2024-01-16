@@ -9,7 +9,7 @@ class ProductController{
         var products = ProductModel.getAll();
         // console.log(products);
         //sending the product from server to client
-        res.render("index",{products:products})
+        res.render("index",{products, userEmail: req.session.userEmail });
 
         // return res.sendFile(
         // path.join(path.resolve(),'src','views','products.html'),)
@@ -17,7 +17,7 @@ class ProductController{
 
     //request to get the form
     getAddProduct(req,res,next){
-        res.render('new-product',{errorMessage:null});
+        res.render('new-product',{errorMessage:null, userEmail: req.session.userEmail });
     }
 
     //adding new product
@@ -32,7 +32,7 @@ class ProductController{
 
         //retuerning to main page after updating the new product
         var products = ProductModel.getAll();
-        res.render("index",{products:products})
+        res.render("index",{products, userEmail: req.session.userEmail})
 
     }
 
@@ -44,6 +44,7 @@ class ProductController{
           res.render('update-product', {
             product: productFound,
             errorMessage: null,
+            userEmail: req.session.userEmail
           });
         }
         // 2. else return errors.
@@ -56,6 +57,7 @@ class ProductController{
         ProductModel.update(req.body);
         var products = ProductModel.getAll();
         res.render("index",{products:products})
+        
     }
 
     deleteProduct(req,res){

@@ -27,12 +27,21 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/add-product">New Products</a>
                     </li>
+                    <!-- locals refers to the data or all the variable which is passing from the srever side to the ejs template so that we can access all those variables which is passesed from server side to controller-->
+                    <!-- if user email is received from the local then show lout button -->
+                    <% if(locals.userEmail) {%>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/logout">Logout</a>
+                        </li>
+                    <% }else { %>         
+                    <!-- else shw register and login button -->
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/register">Rigister</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/login">Login</a>
                     </li>
+                    <%}%>
                 </ul>
             </div>
         </div>
