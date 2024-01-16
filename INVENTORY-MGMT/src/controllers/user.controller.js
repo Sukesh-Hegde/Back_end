@@ -27,6 +27,10 @@ class UserController{
                 errorMessage: 'Invalid Credentials'
             });
         }
+        //attaching req object to session object
+        //this will store email id in the coockies when the egistered email and password matches with login email and pass
+        req.session.userEmail = email;
+
         var products = ProductModel.getAll();
         res.render("index",{products:products})
     }
