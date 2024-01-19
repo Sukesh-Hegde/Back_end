@@ -1,5 +1,8 @@
 // To manage routes/paths to ProductController
 
+//importing fileupload middleware
+import {upload} from '../../../middlewares/fileUpload.middleware.js';
+
 //1. Import express.
 import express from 'express';
 
@@ -12,8 +15,15 @@ const productController = new ProductController
 
 //All the paths to controller methods.
 //localhost/api/products
+productRouter.get("/filter",productController.filterProducts);
+
 productRouter.get("/",productController.getAllProducts);
-productRouter.post("/",productController.addProduct);
+productRouter.post("/",upload.single('imageUrl'), productController.addProduct);
+productRouter.get("/:id", productController.getOneProduct);
+//using query parameter
+//localhost:3200/api/products/filter?minPrice=10&maxPrice=20&category=Category1
+
 
 
 export default productRouter;
+
