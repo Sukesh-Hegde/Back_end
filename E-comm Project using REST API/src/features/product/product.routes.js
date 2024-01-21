@@ -15,10 +15,10 @@ const productController = new ProductController
 
 //All the paths to controller methods.
 //localhost/api/products
-productRouter.get("/filter",productController.filterProducts);
 
 productRouter.get("/",productController.getAllProducts);
 productRouter.post("/",upload.single('imageUrl'), productController.addProduct);
+productRouter.get("/filter",productController.filterProducts);
 productRouter.get("/:id", productController.getOneProduct);
 //using query parameter
 //localhost:3200/api/products/filter?minPrice=10&maxPrice=20&category=Category1

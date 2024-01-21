@@ -32,7 +32,9 @@ export default class ProductController{
 
     getOneProduct(req,res){
         //using root parameters
+        console.log(1);
         const id = req.params.id;
+        console.log(id);
         const product = ProductModel.get(id);
         if(!product){
             res.status(404).send('product not found');
