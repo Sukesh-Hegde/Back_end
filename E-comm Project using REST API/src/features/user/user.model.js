@@ -8,7 +8,7 @@ export default class UserModel {
     }
 
     // static method to add new user
-    static SingnUp(name,email, password,type) {
+    static singnUp(name,email, password,type) {
         const newUser = new UserModel(
             name,
             email,
@@ -20,19 +20,30 @@ export default class UserModel {
         return newUser;
     }
 
-    static SingnIn(email, password){
+    static singnIn(email, password){
         const user = users.find((u)=> u.email==email && u.password==password);
         return user;
     }
 
+    static getAll(){
+        return users;
+    }
+
 }
 
-var users = [
+let users = [
     {
         id: '1',
         name: 'Seller User',
-        email: 'admin@ecom.com',
+        email: 'seller@ecom.com',
         password: 'password1',
         type: 'seller',
+    },
+    {
+        id: '2',
+        name: 'Customer User',
+        email: 'customerr@ecom.com',
+        password: 'password1',
+        type: 'customer',
     },
 ]

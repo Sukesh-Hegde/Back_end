@@ -15,7 +15,7 @@ const productController = new ProductController
 
 //All the paths to controller methods.
 //localhost/api/products
-
+productRouter.post("/rate",productController.rateProduct);
 productRouter.get("/",productController.getAllProducts);
 productRouter.post("/",upload.single('imageUrl'), productController.addProduct);
 productRouter.get("/filter",productController.filterProducts);

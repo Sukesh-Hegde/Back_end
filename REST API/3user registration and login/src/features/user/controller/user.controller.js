@@ -16,7 +16,7 @@ export const registerUser = (req, res, next) => {
 export const loginUser = (req, res) => {
   let status = confirmLogin(req.body);
   if (status) {
-    res.status(200).json({ status: "success", msg: "login successful" });
+     
   } else {
     res.status(400).json({ status: "failure", msg: "invalid user details" });
   }
