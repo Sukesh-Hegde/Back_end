@@ -10,7 +10,9 @@ const jwtAuth = (req, res, next)=>{
     //3. check if the token is valid
     try{
     const payload = jwt.verify(token,'0n1QFQXWEYZ0Kfy1L1NTKyjYOH03NWBV');
-    console.log(payload);
+    //requesting userID  from payload.userID 
+    req.userID = payload.userId //it will be used in cartItems.controller.js for the userID
+    // console.log(payload);
     }catch(err){
         //4. return error
         return res.status(401).send("Unauthorized")

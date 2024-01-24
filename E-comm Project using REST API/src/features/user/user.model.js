@@ -42,7 +42,7 @@ let users = [
     {
         id: '2',
         name: 'Customer User',
-        email: 'customerr@ecom.com',
+        email: 'customer@ecom.com',
         password: 'password1',
         type: 'customer',
     },

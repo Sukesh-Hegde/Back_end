@@ -65,7 +65,7 @@ export default class ProductModel{
       }
       else{
         // 3. Check if user rating is already available.
-        const existingRatingIndex = product.rating.findIndex(
+        const existingRatingIndex = product.ratings.findIndex(
           (r) => r.userID == userID
         );
         if(existingRatingIndex >= 0){
@@ -89,55 +89,6 @@ export default class ProductModel{
 
 
 
-
-
-
-
-
-
-//   //Rating
-//   static rateProduct(userID, productID, rating){
-//     //1. validate user and product
-//     const user = UserModel.getAll().find(
-//       (u) => u.id == userID
-//     );
-//     if(!user) {
-//       return 'User not found';
-//     }
-
-//     //Validation product
-//     const product = products.find((p) => p.id == productID);
-
-//     if(!product){
-//       return 'product not found'
-//     }
-//     //2.check if there are any rating and if not then add ratings array
-//     if(!product.ratings){
-//       product.ratings = [];
-//       product.ratings.push({
-//         userID: userID,
-//         rating: rating,
-//       });
-//     }else{
-//       //check if user rating is already available update rating
-//       const existingRatingIndex = product.rating.findIndex((r) => r.userID == userID);
-//       if(existingRatingIndex >=0) {
-//         product.ratings[existingRatingIndex]={
-//           userID: userID,
-//           rating: rating,
-//         };
-
-//       }else{
-//         //if no existing rating, then add new rating.
-//         product.ratings.push({
-//           userID: userID,
-//           rating: rating,
-//         });    
-//       }
-//     }
-    
-//   }  
-// }
 
 
 var products = [
