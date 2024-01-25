@@ -1,0 +1,2 @@
+{"level":"info","message":"\nreq URL:/api/cartItems  \nreqBody:{}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/cartItems  \nreqBody:{}","service":"request-logging"}
