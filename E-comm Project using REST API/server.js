@@ -10,6 +10,7 @@ import bodyParser from 'body-parser';
 import CartRouter from './src/features/cardItems/cartItems.routes.js';
 import apiDocs from './swagger.json' assert{type:'json'};//assert= informing this is the json object
 import loggerMiddleware from './middlewares/logger.middleware.js';
+import { ApplicationError } from './src/error-handler/applicationError.js';
 const server = express();
 server.use(bodyParser.json());
 
@@ -33,6 +34,15 @@ server.use("/api/users", userRouter);
 
 //for all requests related to user, redirect to user routes.
 server.use("/api/cartItems",jwtAuth, CartRouter);
+
+//Error handler middleware
+server.use((err,req,res,next) => {
+    console.log(err);
+if (err instanceof ApplicationError){
+    res.status(err.code).send(err.message);
+}
+    res.status(500).send('Somthing went wrong, please try later');// 500 is server error
+});
 
 server.get("/",(req,res)=>{
     res.send("welcome to Ecommerce APIs");

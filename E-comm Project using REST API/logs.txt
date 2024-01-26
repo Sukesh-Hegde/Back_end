@@ -1,2 +1,15 @@
 {"level":"info","message":"\nreq URL:/api/cartItems  \nreqBody:{}","service":"request-logging"}
 {"level":"info","message":"\nreq URL:/api/cartItems  \nreqBody:{}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/  \nreqBody:{}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/products/productID=10&rating=5  \nreqBody:{\"email\":\"john.doe@gmail.com\",\"password\":\"Password1\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/products/?productID=10&rating=5  \nreqBody:{\"email\":\"john.doe@gmail.com\",\"password\":\"Password1\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/products/rate?productID=10&rating=5  \nreqBody:{\"email\":\"john.doe@gmail.com\",\"password\":\"Password1\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/products/rate?productID=10&rating=5  \nreqBody:{\"email\":\"john.doe@gmail.com\",\"password\":\"Password1\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/products/rate?productID=10&rating=5&userID=1  \nreqBody:{\"email\":\"john.doe@gmail.com\",\"password\":\"Password1\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/products/rate?productID=10&rating=5&userID=1  \nreqBody:{\"email\":\"john.doe@gmail.com\",\"password\":\"Password1\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/products/rate?productID=10&rating=5&userID=1  \nreqBody:{\"email\":\"john.doe@gmail.com\",\"password\":\"Password1\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/products/rate?productID=10&rating=5&userID=1  \nreqBody:{\"email\":\"john.doe@gmail.com\",\"password\":\"Password1\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/products/rate?productID=10&rating=5&userID=1  \nreqBody:{\"email\":\"john.doe@gmail.com\",\"password\":\"Password1\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/products/rate?productID=10&rating=5&userID=1  \nreqBody:{\"email\":\"john.doe@gmail.com\",\"password\":\"Password1\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/products/rate?productID=10&rating=5&userID=1  \nreqBody:{\"email\":\"john.doe@gmail.com\",\"password\":\"Password1\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/products/rate?productID=10&rating=5&userID=1  \nreqBody:{\"email\":\"john.doe@gmail.com\",\"password\":\"Password1\"}","service":"request-logging"}
