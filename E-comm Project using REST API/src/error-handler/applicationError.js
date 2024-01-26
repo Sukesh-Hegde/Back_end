@@ -5,3 +5,4 @@ export class ApplicationError extends Error{
         this.code=code;
     }
 }
+
