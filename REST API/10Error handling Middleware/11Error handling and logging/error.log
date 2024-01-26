@@ -1,0 +1,7 @@
+
+{"level":"error","message":"Fri Jan 26 2024 13:02:44 GMT+0530 (India Standard Time)\n req URL: /test-custom-error\n reqBody: {\"id\":1,\"name\":\"John Doe\"} \n\n","service":"user-service"}
+{"level":"error","message":"\"timestamp\":Fri Jan 26 2024 13:08:48 GMT+0530 (India Standard Time)\n req URL: /test-custom-error","service":"user-service"}
+{"level":"error","message":"TimeStamp:Fri Jan 26 2024 16:47:35 GMT+0530 (India Standard Time)\n req URL: /test-custom-errorerror message:testing app level custom error handling middleware","service":"user-service"}
+{"level":"error","message":"TimeStamp:Fri Jan 26 2024 16:48:27 GMT+0530 (India Standard Time)\n req URL: /test-custom-errorerror message:testing app level custom error handling middleware"}
+{"level":"error","message":"TimeStamp:Fri Jan 26 2024 16:49:33 GMT+0530 (India Standard Time)\n req URL: /test-unhandled-errorerror message:undefined","service":"user-service"}
+{"level":"error","message":"TimeStamp:Fri Jan 26 2024 16:50:41 GMT+0530 (India Standard Time)\n req URL: /test-unhandled-errorerror message:oops! something went wrong...Try again later!","service":"user-service"}
