@@ -3,12 +3,11 @@ import jwt from 'jsonwebtoken';
 
 export default class UserController {
 
-    signUP(req, res){
+    async signUP(req, res){
         //read all the details
         const {name,email,password,type} =req.body;
-        const user = UserModel.singnUp(name,email,password,type);
+        const user = await UserModel.signUp(name,email,password,type);
         res.status(201).send(user);
-
     }
 
       signIn(req, res){

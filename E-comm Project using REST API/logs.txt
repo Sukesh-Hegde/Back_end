@@ -13,3 +13,15 @@
 {"level":"info","message":"\nreq URL:/api/products/rate?productID=10&rating=5&userID=1  \nreqBody:{\"email\":\"john.doe@gmail.com\",\"password\":\"Password1\"}","service":"request-logging"}
 {"level":"info","message":"\nreq URL:/api/products/rate?productID=10&rating=5&userID=1  \nreqBody:{\"email\":\"john.doe@gmail.com\",\"password\":\"Password1\"}","service":"request-logging"}
 {"level":"info","message":"\nreq URL:/api/products/rate?productID=10&rating=5&userID=1  \nreqBody:{\"email\":\"john.doe@gmail.com\",\"password\":\"Password1\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/users/signup  \nreqBody:{\"email\":\"seller@ecom.com\",\"password\":\"password1\",\"name\":\"Seller User\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/users/signup  \nreqBody:{\"email\":\"seller@ecom.com\",\"password\":\"password1\",\"name\":\"Seller User\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/users/signup  \nreqBody:{\"email\":\"seller@ecom.com\",\"password\":\"password1\",\"name\":\"Seller User\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/users/signup  \nreqBody:{\"email\":\"seller@ecom.com\",\"password\":\"password1\",\"name\":\"Seller User\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/users/signup  \nreqBody:{\"email\":\"seller@ecom.com\",\"password\":\"password1\",\"name\":\"Seller User\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/users/signup  \nreqBody:{\"email\":\"seller@ecom.com\",\"password\":\"password1\",\"name\":\"Seller User\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/users/signup  \nreqBody:{\"email\":\"seller@ecom.com\",\"password\":\"password1\",\"name\":\"Seller User\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/users/signup  \nreqBody:{\"email\":\"seller@ecom.com\",\"password\":\"password1\",\"name\":\"Seller User\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/users/signup  \nreqBody:{\"email\":\"seller@ecom.com\",\"password\":\"password1\",\"name\":\"Seller User\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/users/signup  \nreqBody:{\"email\":\"seller@ecom.com\",\"password\":\"password1\",\"name\":\"Seller User\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/users/signup  \nreqBody:{\"email\":\"seller@ecom.com\",\"password\":\"password1\",\"name\":\"Seller User\",\"type\":\"Seller\"}","service":"request-logging"}
+{"level":"info","message":"\nreq URL:/api/users/signup  \nreqBody:{\"email\":\"seller@ecom.com\",\"password\":\"password1\",\"name\":\"Seller User\",\"type\":\"Seller\"}","service":"request-logging"}

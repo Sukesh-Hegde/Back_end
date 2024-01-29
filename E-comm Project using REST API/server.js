@@ -11,6 +11,7 @@ import CartRouter from './src/features/cardItems/cartItems.routes.js';
 import apiDocs from './swagger.json' assert{type:'json'};//assert= informing this is the json object
 import loggerMiddleware from './middlewares/logger.middleware.js';
 import { ApplicationError } from './src/error-handler/applicationError.js';
+import {connectToMongoDB} from './src/config/mongodb.js';
 const server = express();
 server.use(bodyParser.json());
 
@@ -55,4 +56,5 @@ server.use((req,res)=>{
 
 server.listen(3200, ()=>{
     console.log("Server is running as 3200");
+    connectToMongoDB(); //calling
 });
