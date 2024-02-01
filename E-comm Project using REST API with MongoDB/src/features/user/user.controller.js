@@ -35,13 +35,18 @@ export default class UserController {
       //1.find user by email
       //check user is there by checking the email
       const user = await this.userRepository.findByEmail(req.body.email);
+
+
       if(!user){
         return res
         .status(400)
-        .send('Incorrect Credentials');
+        .send('Incorrect email');
       }else{
         //2.compare password with hashed password
        const result = await bcrypt.compare(req.body.password, user.password);
+       console.log(req.body.password);
+       console.log(user.password);
+
       if(result){
         // 3. Create token.
       const token = jwt.sign(
@@ -60,7 +65,7 @@ export default class UserController {
     }else {
   return res
   .status(400)
-  .send('Incorrect Credentials');
+  .send('Incorrect password ');
     }   
   }} catch(err){
       console.log(err);
