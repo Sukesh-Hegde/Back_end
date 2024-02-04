@@ -19,6 +19,7 @@ export default class UserController {
 
     //creating hashing of password
     const hashPassword = await bcrypt.hash(password,12)
+    console.log(hashPassword);
 
     const user = new UserModel(
       name,

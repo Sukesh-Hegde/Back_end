@@ -82,17 +82,25 @@ export default class ProductController {
   // }
 
   async filterProducts(req, res) {
-    try{  
-    const minPrice = req.query.minPrice;
-    const categories = req.query.categories;
-    const result = await this.productRepository.filter(
-      minPrice,
-      categories
-    );
-    res.status(200).send(result);
-  }catch(err){
-    console.log(err);
-    return res.status(200).send("Something went wrong");
+    try {
+      const minPrice = req.query.minPrice;
+      const categories = req.query.categories;
+      const result = await this.productRepository.filter(minPrice, categories);
+      res.status(200).send(result);
+    } catch (err) {
+      console.log(err);
+      return res.status(200).send("Something went wrong");
+    }
   }
+
+  async averagePrice(req, res, next) {
+    try {
+      const result =
+        await this.productRepository.averageProductPricePerCategory();
+      res.status(200).send(result);
+    } catch (err) {
+      console.log(err);
+      return res.status(200).send("Something went wrong");
+    }
   }
 }

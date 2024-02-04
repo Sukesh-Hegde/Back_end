@@ -17,6 +17,11 @@ export const connectToMongoDB = ()=>{
         })
 }
 
+//this is for Transaction at order.repository.js
+export const getClient = ()=>{
+    return client;
+}
+
 export const getDB = ()=>{
     return client.db();
 }
