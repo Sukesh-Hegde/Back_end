@@ -32,7 +32,13 @@ export default class UserRepository{
         }
         catch(err){
             console.log(err);
-            throw new ApplicationError("Something went wrong with database", 500);
+            if(err instanceof mongoose.Error.ValidationError){ //if its a mongoose error then it will be thrown to the error handler midlewere which is there in (server.js file) 
+                throw err;
+            }else{
+                console.log(err);
+                throw new ApplicationError("Something went wrong with database", 500);
+            }
+            
         }
     }
 

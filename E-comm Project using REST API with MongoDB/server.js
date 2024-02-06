@@ -5,6 +5,8 @@ import "./env.js";
 import express from "express";
 import swagger, { serve } from "swagger-ui-express";
 import cors from "cors";
+import mongoose from "mongoose";
+
 
 import productRouter from "./src/features/product/product.routes.js";
 import userRouter from "./src/features/user/user.routes.js";
@@ -59,8 +61,11 @@ server.get("/", (req, res) => {
 // Error handler middleware
 server.use((err, req, res, next) => {
   console.log(err);
+  if (err instanceof mongoose.Error.ValidationError) {
+    return res.status(400).send(err.message);
+  }
   if (err instanceof ApplicationError) {
-    res.status(err.code).send(err.message);
+    return res.status(err.code).send(err.message);
   }
 
   // server errors.
