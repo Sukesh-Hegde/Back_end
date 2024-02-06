@@ -18,13 +18,14 @@ export default class ProductController {
 
   async addProduct(req, res) {
     try {
-      const { name, price, sizes } = req.body;
+      console.log(req.body);
+      const { name, price, sizes,categories } = req.body;
       const newProduct = new ProductModel(
         name,
         null,
         parseFloat(price),
         req.file.filename,
-        null,
+        categories,
         sizes.split(",")
       );
 

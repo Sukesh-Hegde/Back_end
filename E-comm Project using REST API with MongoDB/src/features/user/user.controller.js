@@ -32,12 +32,12 @@ export default class UserController {
     } = req.body;
 
     //creating hashing of password
-    // const hashPassword = await bcrypt.hash(password,12)
+    const hashPassword = await bcrypt.hash(password,12)
     try {
       const user = new UserModel(
         name,
         email,
-        password, // passing hashPassword instead of password
+        hashPassword, // passing hashPassword instead of password
         type
       );
       await this.userRepository.signUp(user);
