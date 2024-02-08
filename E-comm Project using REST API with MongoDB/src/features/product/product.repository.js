@@ -6,6 +6,7 @@ import { productSchema } from "./product.schema.js";
 import { reviewSchema } from "./review.schema.js";
 import { categorySchema } from "./category.schema.js";
 
+// create the models for product and repository
 const ProductModel = mongoose.model("Product", productSchema);
 const ReviewModel = mongoose.model("Review", reviewSchema);
 const CategoryModel =mongoose.model("Category",categorySchema);
@@ -144,7 +145,7 @@ class ProductRepository {
 
   async rate(userID, productID, rating) {
     try {
-        console.log(userID, productID, rating);
+      // console.log(userID, productID, rating);
       // 1. Check if product exists
       const productToUpdate = await ProductModel.findById(productID);
       if (!productToUpdate) {
@@ -156,6 +157,7 @@ class ProductRepository {
         product: new ObjectId(productID),
         user: new ObjectId(userID),
       });
+      //updating review
       if (userReview) {
         userReview.rating = rating;
         await userReview.save();

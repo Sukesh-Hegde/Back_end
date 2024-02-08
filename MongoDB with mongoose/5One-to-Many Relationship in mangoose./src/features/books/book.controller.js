@@ -51,7 +51,7 @@ export default class BookController {
 
   getOne = async (req, res) => {
     const { bookId } = req.params;
-    console.log(bookId);
+    // console.log(bookId);
 
     try {
       const book = await this.bookRepository.getOne(bookId);
