@@ -7,7 +7,7 @@ export const likeSchema = new mongoose.Schema({
     },
     likeable:{
         type: mongoose.Schema.Types.ObjectId,
-        refPath:'on_model'
+        refPath:'on_model'//this will be a separate attribute , which specify which type of objects can appear here, i.e product or catagory
     },
     on_model:{
         type:String,

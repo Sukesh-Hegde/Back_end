@@ -6,7 +6,7 @@ import { ObjectId } from "mongodb";
 const LikeModel = mongoose.model("Like", likeSchema)
 
 export class LikeRepository{
-
+    //doing it by using .populate instead of using if condition
     async getLikes(type, id){
         return await LikeModel.find({
             likeable: new ObjectId(id),

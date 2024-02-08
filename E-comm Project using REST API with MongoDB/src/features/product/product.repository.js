@@ -9,7 +9,7 @@ import { categorySchema } from "./category.schema.js";
 // create the models for product and repository
 const ProductModel = mongoose.model("Product", productSchema);
 const ReviewModel = mongoose.model("Review", reviewSchema);
-const CategoryModel =mongoose.model("Category",categorySchema);
+const CategoryModel = mongoose.model("Category", categorySchema);
 
 class ProductRepository {
   constructor() {
@@ -18,18 +18,17 @@ class ProductRepository {
 
   async add(productData) {
     try {
-        // 1. Adding Product
-        productData.categories=productData.category.split(',');
-        console.log(productData);
-        const newProduct = new ProductModel(productData);
-        const savedProduct = await newProduct.save();
+      // 1. Adding Product
+      productData.categories = productData.category.split(",");
+      // console.log(productData);
+      const newProduct = new ProductModel(productData);
+      const savedProduct = await newProduct.save();
 
-        // 2. Update categories.
-        await CategoryModel.updateMany(
-            {_id: {$in: productData.categories}},
-            {$push: {products: new ObjectId(savedProduct._id)}}
-        )
-
+      // 2. Update categories.
+      await CategoryModel.updateMany(
+        { _id: { $in: productData.categories } }, //$in will work with array
+        { $push: { products: new ObjectId(savedProduct._id) } } //what we need to update
+      );
     } catch (err) {
       console.log(err);
       throw new ApplicationError("Something went wrong with database", 500);
