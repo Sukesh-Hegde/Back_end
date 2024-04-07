@@ -25,6 +25,13 @@ io.on('connection', (socket) => {
 
     socket.on("join", (data) => {
         socket.username = data;
+        // send old messages to the clients.
+        chatModel.find().sort({ timestamp: 1 }).limit(50)
+            .then(messages => {
+                socket.emit('load_messages', messages);
+            }).catch(err => {
+                console.log(err);
+            })
     });
 
     socket.on('new_message', (message) => {
@@ -33,7 +40,6 @@ io.on('connection', (socket) => {
             message: message
         }
 
-        //for db
         const newChat = new chatModel({
             username: socket.username,
             message: message,
@@ -41,8 +47,8 @@ io.on('connection', (socket) => {
         });
         newChat.save();
 
-            // broadcast this message to all the clients.
-            socket.broadcast.emit('broadcast_message', userMessage);
+        // broadcast this message to all the clients.
+        socket.broadcast.emit('broadcast_message', userMessage);
     })
 
     socket.on('disconnect', () => {
