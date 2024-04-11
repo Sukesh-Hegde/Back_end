@@ -1,0 +1,14 @@
+Problem statement
+You are tasked with developing a feature for an expense tracking application. The application has existing routes and controllers for managing expenses, including creating, retrieving, updating, and deleting expenses.
+
+Your objective is to enhance the application's functionality by implementing MongoDB aggregation operators to provide valuable insights into the expense data.
+This will allow users to perform various analyses on their expenses, such as calculating total expenses for each product, grouping expenses by specific criteria, and more.
+
+Objectives:
+You are required to enhance the existing expense tracking application with the following features using MongoDB aggregation operators:
+Calculate Total Revenue: Implement an aggregation stage that calculates the total revenue for each unique expense based on the "amount" field. The result is an array of objects containing the "id" (indicating the title) and the corresponding total revenue, "totalRevenue".
+Group Expenses by Tags: Create an aggregation stage that groups expenses by their "tags" field. The result should consist of unique "tags" and an array of "expenses" associated with each tag.
+Filter and Group by Recurring Status: Implement an aggregation stage that groups expenses by their "isRecurring" status (true or false). The result should be an array of objects containing the "id" (indicating recurring or not) and the corresponding average amount, "avgAmount".
+
+Expected Output:
+Upon successful completion, users should be able to query the application's endpoints to retrieve aggregated expense data based on various criteria. This may include calculated totals, grouped results, and customized analyses.

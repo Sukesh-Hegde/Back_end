@@ -13,16 +13,40 @@ const app = express();
 
 // app.use(cors());
 
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "http://localhost:5500");
+//   res.header("Access-Control-Allow-Headers", "*");
+//   res.header("Access-Control-Allow-Methods", "*");
+//   // return ok for preflight request.
+//   if (req.method == "OPTIONS") {
+//     return res.sendStatus(200);
+//   }
+//   next();
+// });
+
+
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5500");
-  res.header("Access-Control-Allow-Headers", "*");
-  res.header("Access-Control-Allow-Methods", "*");
-  // return ok for preflight request.
-  if (req.method == "OPTIONS") {
+  const allowedOrigins = ["http://localhost:5500", "http://127.0.0.1:5500"];
+
+  const origin = req.headers.origin;
+
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+
+  res.setHeader("Access-Control-Allow-Headers", "*");
+  res.setHeader("Access-Control-Allow-Methods", "*");
+
+  // Return OK for preflight request
+  if (req.method === "OPTIONS") {
     return res.sendStatus(200);
   }
+
   next();
 });
+
+
+
 
 // app.use((req, res, next) => {
 //     res.header("Access-Control-Allow-Origin", "http://localhost:5500"); // Update this with your actual client origin
