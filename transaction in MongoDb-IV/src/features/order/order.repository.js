@@ -34,7 +34,7 @@ export default class OrderRepository{
         // throw new Error("Something is wrong in placeOrder");
         // 4. Clear the cart items.
         await db.collection("cartItems").deleteMany({
-            userID: new ObjectId(userId)//filter
+            userID: new ObjectId(userId)
         },{session});
         session.commitTransaction();
         session.endSession();
@@ -58,12 +58,12 @@ export default class OrderRepository{
             {
                 $lookup:{
                     from:"products",
-                    localField:"productID",//here it is field in carditem which is product id
-                    foreignField:"_id",//matching field in the product collection
+                    localField:"productID",
+                    foreignField:"_id",
                     as:"productInfo"
                 }
             },
-            // 3. Unwind the productinfo. (creating an array out of nested array using $unwind)
+            // 3. Unwind the productinfo.
             {
                 $unwind:"$productInfo"
             },
